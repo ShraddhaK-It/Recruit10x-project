@@ -14,7 +14,7 @@
     
     <!-- Inline CSS for the Project -->
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -39,7 +39,7 @@
         .swiper-caption {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 70%;
             transform: translate(-50%, -50%);
             color: #fff;
             text-align: center;
@@ -58,8 +58,7 @@
             background-color: #f9f9f9;
             padding: 50px 0;
         }
-
-        .company-card {
+      .company-card {
     border: 1px solid #ddd; /* Light gray border for a clean look */
     border-radius: 16px; /* Increase the rounding for a smoother rectangle */
     padding: 20px; /* Maintain padding for proper spacing */
@@ -88,9 +87,8 @@
             border-radius: 50%;
             width: 50px;
             height: 50px;
-        }
-
-       /* General Section Styling */
+        } 
+         /* General Section Styling */
 .section-padding {
   background: linear-gradient(to bottom right, #1e024d, #11206d);
   color: #fff;
@@ -115,7 +113,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 5px;
 }
 
 /* Job Cards */
@@ -167,7 +165,6 @@
   background: #4a00e0;
   text-decoration: none;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .job-card {
@@ -190,26 +187,28 @@
 #call-to-action-2:hover p {
     color: white; /* change text color when hovered */
 }
-    </style>
-</head>
-
-<body>
-    <!-- Banner Section -->
+        
+       
+</style>
+      </head>
+      <body>
+         <!-- Banner Section -->
     <section id="banner" data-aos="fade-up" data-aos-duration="1000">
         <div class="swiper-container" id="main-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/2.jpg" alt="">
+                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/1174.png" alt="">
                     <div class="swiper-caption">
-                        <h3>Specialize</h3>
-                        <p>Success depends on work</p>
+                        <h3  style="color: #fff;">Empowering Your Next Career Step</h3>
+                        <!-- <p>Various career opportunities await you. 
+                          Find the right career and connect with companies anytime,anywhere. </p> -->
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/1.png" alt="">
+                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/195.jpg" alt="">
                     <div class="swiper-caption">
-                        <h3>Innovation</h3>
-                        <p>We create the opportunities</p>
+                        <!-- <h3>Innovation</h3>
+                        <p>We create the opportunities</p> -->
                     </div>
                 </div>
             </div>
@@ -219,31 +218,46 @@
         </div>
     </section>
 
-    <!-- Call-to-Action Section -->
-    <section id="call-to-action-2" data-aos="fade-right" data-aos-duration="1200">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-9">
-                    <h3>Partner with Business Leaders</h3>
-                    <p>Development of successful, long-term, strategic relationships between customers and suppliers...</p>
-                </div>
-            </div>
+  <section id="call-to-action-2" data-aos="fade-right" data-aos-duration="1200">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-sm-9">
+          <h3>Partner with Business Leaders</h3>
+          <p>Development of successful, long term, strategic relationships between customers and suppliers, based on achieving best practice and sustainable competitive advantage. In the business partner model, HR professionals work closely with business leaders and line managers to achieve shared organisational objectives.</p>
         </div>
-    </section>
-
-    <!-- Companies Section -->
-    <section id="content" class="gray-bg" data-aos="zoom-in-up" data-aos-duration="1500">
-        <div class="container">
+       <!--  <div class="col-md-2 col-sm-3">
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  
+  <section id="content" class="gray-bg" data-aos="zoom-in-up" data-aos-duration="1500">
+  
+  
+  <div class="container">
+  <!-- <div class="container"> -->
             <h2 class="text-center">Our Companies</h2>
             <p class="text-center">Explore the details of our trusted partners and companies.</p>
-            <div class="row">
-                <?php 
-                    $sql = "SELECT * FROM `tblcompany`";
-                    $mydb->setQuery($sql);
-                    $comp = $mydb->loadResultList();
-                    foreach ($comp as $company) {
-                ?>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <!-- <div class="row"> -->
+      <!-- <div class="col-md-12"> -->
+        <!-- <div class="aligncenter"><h2 class="aligncenter">Company</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div> -->
+        <!-- <br/> -->
+      <!-- </div>
+    </div> -->
+
+    <?php 
+      $sql = "SELECT * FROM `tblcompany`";
+      $mydb->setQuery($sql);
+      $comp = $mydb->loadResultList();
+
+
+      foreach ($comp as $company ) {
+        # code...
+    
+    ?>
+    <!--New Code-->
+     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="company-card">
                         <i class="fa fa-building-o fa-3x mb-3"></i>
                        <h3><?php echo '<a href="'.web_root.'index.php?q=hiring&search='.$company->COMPANYNAME.'">'.$company->COMPANYNAME.'</a>';?></h3>
@@ -253,17 +267,15 @@
                         </p>
                     </div>
                 </div>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- Jobs Section -->
-    <section class="section-padding gray-bg" data-aos="flip-left" data-aos-duration="1000">
+    <?php } ?> 
+  </div>
+  </section>
+   <!-- Jobs Section -->
+   <section class="section-padding gray-bg" data-aos="flip-left" data-aos-duration="1000">
         <div class="container">
             <h2>Popular Jobs</h2>
             <p>Explore job categories and find your dream job!</p>
-            <div class="row">
+            <!-- <div class="row"> -->
                 <?php 
                     $sql = "SELECT * FROM `tblcategory`";
                     $mydb->setQuery($sql);
@@ -282,8 +294,9 @@
         </div>
     </section>
 
-    <!-- Our Team Section -->
-    <section id="content-3-10" class="content-block" data-aos="fade-left" data-aos-duration="1500">
+
+   <!-- Our Team Section -->
+   <section id="content-3-10" class="content-block" data-aos="fade-left" data-aos-duration="1500">
         <div class="container">
             <h3>Our Team</h3>
             <p>At Recruite 10x, our dedicated team works tirelessly to connect job seekers with the right employers. With a shared passion for career development and recruitment innovation, we ensure a seamless hiring experience through personalized support and cutting-edge technology.
@@ -309,11 +322,10 @@
                 </blockquote>
             </div>
         </div>
-    </section>
-
-    
-
-    <!-- Include AOS JS -->
+    </section>             
+      
+           
+           <!-- Include AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     
     <!-- Include Swiper JS -->
@@ -330,6 +342,5 @@
             effect: 'fade',
         });
     </script>
-</body>
-
-</html>
+          </body>
+          </html>
