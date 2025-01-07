@@ -2,165 +2,461 @@
  <head>
 <style>
 	
+	.center-page {
+		display: flex;
+    position: absolute;
+     top: 50%;
+    left: 500px; 
+    transform: translate(-50%, -50%);
+    text-align: center; /* Optional, centers text alignment */
+  }
+  
+.panel-collapse {
+      display: none; /* Hidden by default */
+       margin-top: 10px; 
+      padding: 10px;
+      background-color: #f9f9f9;
+      /* border: 1px solid #ddd; */
+      border-radius: 20px;
+	  box-sizing: border-box;
+      width: 100%; /* Match the box width */
+	  height: 100%;
+    }
 
-
- .team-member-wrapper {
+    .panel-collapse.active {
+      display: block; /* Show only the active panel */
+    }
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    background-color: #6488a0; /* Background color */
+    padding: 50px;
     display: flex;
-    flex-direction: column;
-    align-items: left; /* Center-aligns the content */
-    gap: 40px; /* Space between members */
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+	width: 400%;
 }
 
-/*Add horizontal box*/ 
-.team-box-horizontal {
-    width: 100%; /* Full width for horizontal boxes */
-    max-width: 900px; /* Optional: Limit box width */
-    background-color: #f9f9f9; /* Light background for the box */
-    border: 1px solid #ddd; /* Optional: Border for the box */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-    padding: 10px;
-    transition: box-shadow 0.3s ease; /* Smooth hover effect */
-	margin-bottom: 20px; /* Add space below each box */
+.hero-section::before {
+    content: "ERP Evaluation";
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.1); /* Light transparent text */
+    z-index: 1;
+    white-space: nowrap;
+    pointer-events: none;
 }
 
-.team-box-horizontal:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-	background-color:rgb(205, 106, 227)
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120%;
+    z-index: 2;
+    position: relative;
 }
 
-.team-box-content {
-    display: flex; /* Align content horizontally */
-    align-items: center; /* Vertically align content */
-    gap: 15px; /* Space between image and details */
+.text-container {
+    max-width: 40%;
+    padding-right: 20px;
 }
 
-.team-image {
-    width: 300px; /* Fixed size for the image */
-    height: 300px;
-    border-radius: 50%; /* Circular images */
-    object-fit: cover; /* Ensure image fits the circle */
+.text-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    z-index: 2;
 }
 
-.team-details {
-    text-align: left; /* Align text to the left */
-}
+.text-container h1 a {
+    color: black;
+    text-decoration: none; /* Removes the underline */
+  }
+  .text-container h1 a:hover {
+    color: darkgray; /* Optional: Change color on hover */
+  }
 
-.team-details h4 {
-    margin: 0 0 5px;
+.text-container .subheading {
     font-size: 1.2rem;
-    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
 }
 
-.team-details .deg {
-    font-size: 1rem;
-    color: #555;
+.text-container p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+	
 }
-/*Add team members information*/ 
-.team-details .info {
-    font-size: 0.95rem;
-    color: #666;
-    margin-top: 5px;
+
+.image-container {
+    max-width: 20%;
+	/* order: -1; This places the image on the left */
+    position: relative;
+	left:-400px;
+	top:10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.hero-section, .new-hero-section, .third-hero-section, .fourth-hero-section  {
+    margin-bottom: 50px; /* Adjust both sections */
+}
+/* New Hero Section Styles */
+.new-hero-section {
+    position: relative;
+    background-color: #6488a0; /* Background color */
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+	width: 400%;
+}
+
+.new-hero-section::before {
+    content: "ERP Implementation";
+    position: absolute;
+    top: 20%;
+    right: 25%;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.1); /* Light transparent text */
+    z-index: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.new-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: -800px;
+    z-index: 2;
+    position: relative;
+}
+
+.new-text-container {
+    max-width: 40%;
+    padding-left: 20px;
+    text-align: left;
+	position: relative;
+	left:-310px; /* Align text to the right */
+}
+
+.new-text-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+
+.new-text-container h1 a {
+    color: black;
+    text-decoration: none; /* Removes the underline */
+  }
+  .new-text-container h1 a:hover {
+    color: darkgray; /* Optional: Change color on hover */
+  }
+
+.new-text-container .subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.new-text-container p {
+    margin-bottom: 20px;
     line-height: 1.5;
 }
 
-/* Hover Effect */
-.team-box-horizontal:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+.new-cta-button:hover {
+    background-color: #ffffff;
+    color: #6488a0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .team-box-content {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        align-items: center;
-        text-align: center;
-    }
+.new-image-container {
+    max-width: 56%;
+    order: -1; /* This places the image on the left */
+	right:400px;
+}
 
-    /* .team-image {
-        margin-bottom: 10px; /* Space below image */
-    } */
+.new-image-container img {
+    max-width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Third Hero Section */
+.third-hero-section {
+    position: relative;
+    background-color: #6488a0; /* Background color */
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+	width: 400%;
+}
+
+.third-hero-section::before {
+    content: "Training";
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.1); /* Light transparent text */
+    z-index: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.third-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120%;
+    z-index: 2;
+    position: relative;
+}
+
+.third-text-container {
+    max-width: 40%;
+    padding-right: 20px;
+}
+
+.third-text-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+
+.third-text-container h1 a {
+    color: black;
+    text-decoration: none; /* Removes the underline */
+  }
+  .third-text-container h1 a:hover {
+    color: darkgray; /* Optional: Change color on hover */
+  }
+
+.third-text-container .subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.third-text-container p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+	
+}
+
+.third-image-container {
+    max-width: 20%;
+	/* order: -1; This places the image on the left */
+    position: relative;
+	left:-400px;
+	top:10px;
+}
+
+.third-image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* New Hero Section Styles */
+.fourth-hero-section {
+    position: relative;
+    background-color: #6488a0; /* Background color */
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+	width: 400%;
+}
+
+.fourth-hero-section::before {
+    content: "ERP Audit";
+    position: absolute;
+    top: 20%;
+    right: 40%;
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.1); /* Light transparent text */
+    z-index: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.fourth-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: -800px;
+    z-index: 2;
+    position: relative;
+}
+
+.fourth-text-container {
+    max-width: 40%;
+    padding-left: 20px;
+    text-align: left;
+	position: relative;
+	left:-310px; /* Align text to the right */
+}
+
+.fourth-text-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    z-index: 2;
+}
+.fourth-text-container h1 a {
+    color: black;
+    text-decoration: none; /* Removes the underline */
+  }
+  .fourth-text-container h1 a:hover {
+    color: darkgray; /* Optional: Change color on hover */
+  }
+
+.fourth-text-container .subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.fourth-text-container p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.fourth-cta-button:hover {
+    background-color: #ffffff;
+    color: #6488a0;
+}
+
+.fourth-image-container {
+    width: 900px;
+    order: -1; /* This places the image on the left */
+	right:500px;
+}
+
+.fourth-image-container img {
+    max-width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ 
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+.team-section {
+    text-align: center; /* Centers the heading and container */
+    margin: 20px 0; /* Adds space above and below the section */
+}
+
+.team-heading {
+    font-size: 2.5em; /* Sets the font size */
+    color: #333; /* Sets the text color */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    font-weight: bold; /* Makes the text bold */
+    text-transform: uppercase; /* Optional: Transforms text to uppercase */
+    /* letter-spacing: 1px; Adds spacing between letters */
+    text-align: right;
+    margin-right: -400px;
+}
 
 
-/*Add simple box*/ 
-.team-box {
-    width: 300px; /* Box width */
-    padding: 10px;
-    background-color: #f9f9f9; /* Light background color for the box */
-    border: 2px solid #ddd; /* Optional: Border for the box */
-    border-radius: 10px; /* Rounded corners for the box */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow for a subtle 3D effect */
+.team-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    left:400px;
+    max-width: 1500px; /* Limits container width */
+    margin: 0 auto;
+}
+
+.team-card {
+    flex: 1 1 650px;
+    max-width: 550px;
+    height: 350px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* overflow: hidden; */
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
 }
 
-.team-box:hover {
-    transform: translateY(-10px); /* Moves the box up slightly on hover */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhances the shadow on hover */
-	background-color: #a13db3
-}
-
-.team-box img {
-    width: 100%; /* Ensures the image fits the box */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 50%; /* Optional: Circular images */
+.team-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     margin-bottom: 15px;
 }
 
-.team-box h4 {
-    margin: 10px 0 5px;
-    font-size: 1.2rem;
-    color: #333;
+.team-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
 }
 
-.team-box .deg {
-    font-size: 1rem;
-    color: #555;
-}
-
-.team-member {
-    text-align: center;
-    max-width: 300px; /* Optional: Set a fixed width */
-}
-
-.team-member img {
-    width: 100%; /* Ensures responsiveness */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners */
-}
-
-h4 {
-    margin: 10px 0 5px;
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.deg {
-    font-size: 1rem;
+.team-card p {
+    font-size: 14px;
     color: #777;
+    margin: 10px 0;
 }
 
-.hover-box {
-            width: 300px;
-            height: 120px;
-            padding: 20px;
-            text-align: center;
-            border-radius: 20px;
-            background: linear-gradient(to right, #8a2be2, #6200ea);
-            transition: background-color 0.3s, transform 0.3s ease;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
-        .hover-box:hover {
-            background: linear-gradient(to right, #4caf50, #2e7d32);
-            cursor: pointer;
-            transform: scale(1.05);
-        }
+.social-icons a {
+    color: #555;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+
+#call-to-action-2 {
+    background: linear-gradient(to right, rgba(96, 186, 253, 0.3), rgba(96, 186, 253, 0.3));
+    transition: background-color 0.3s ease; /* smooth transition for hover effect */
+}
+
+/* Hover effect for the background color */
+#call-to-action-2:hover {
+    background: linear-gradient(to right, rgba(115, 16, 160, 0.6), rgba(64, 152, 219, 0.6));
+}
+
+/* Optional: Adjust text color when hovered */
+#call-to-action-2:hover h3, 
+#call-to-action-2:hover p {
+    color: black; /* change text color when hovered */
+}
 </style>
 </head>
 <body>
@@ -170,244 +466,194 @@ h4 {
 			<div class="container"  data-aos="fade-in">
 		<div class="row showcase-section">
 				<div class="col-md-6" data-aos="fade-up">
-					 <img class="img-fluid" src="plugins/home-plugins/img/collage.png" alt=" " style="width: 100%; margin-top: 5%;">
+					 <img class="img-fluid" src="plugins/home-plugins/img/About_Us/aboutus.jpg" alt=" " style="width: 100%; margin-top: 5%;">
 				</div>
 				
 				<div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-					<div class="about-text">
-						<h3>We Help To Get The Best Job And Find A Talent</h3>
-						<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar.</p>
-						 <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo..</p>
-					</div>
+					<div class="about-text" >
+						<h3 style="margin-bottom: 5px;">We Help To Get The Best Job And Find A Talent</h3>
+						<p>At Recruit10x, we bridge the gap between job seekers and employers, creating opportunities for both to thrive. 
+							Whether you're looking for your dream job or the perfect candidate, we're here to help.</p>
+						 <!-- <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo..</p> -->
+				        <h3 style="margin-bottom: 5px;">For Job Seekers:</h3> <!-- Reduce the margin below the heading -->
+						<ul style="margin-top: 0; margin-bottom: 10px; padding-left: 20px;"> <!-- Adjust margins and padding -->
+    <li>Explore thousands of exciting job opportunities across diverse industries.</li>
+    <li>Build your career with personalized job recommendations and guidance.</li>
+    <li>Access tools to create a professional resume and ace your interviews.</li>
+</ul>
+<h3 style="margin-bottom: 5px;">For Employers:</h3>
+<ul style="margin-top: 0; margin-bottom: 10px; padding-left: 20px;">
+	<li>Discover top talent from a pool of skilled professionals.</li>
+	<li>Streamline your hiring process with our advanced recruitment tools.</li>
+</ul>
+						</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	
-	<div class="container" data-aos="fade-in">
-					<div class="about">
-						<div class="row">
-							<div class="col-md-4" data-aos="fade-up">
-								<!-- Heading and para -->
+	
+    <section id="call-to-action-2" data-aos="fade-right" data-aos-duration="1200">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-9">
+                    <h3>Why Choose Us?</h3>
+                    <p>We blend innovation and expertise to deliver recruitment solutions that drive results. 
+						Join the thousands who trust Recruit10x to unlock potential and achieve success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	 <div class="about"> 
+						 <div class="row"> 
+							 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
 								<div class="block-heading-two">
-									<h3><span>Why Choose Us?</span></h3>
-								</div>
-								<p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br/><br/>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
-							</div>
-							<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-								<div class="block-heading-two">
-									<h3><span>Our Solution</span></h3>
+									<h2  style="text-align: right; margin-right: -500px; font-size: 2.5em;">Solutions We Provide</h2>
 								</div>		
-								<!-- Accordion starts -->
-								<div class="panel-group" id="accordion-alt3">
-									
-								 <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
-								  <div class="panel">
-								  	
-									<!-- Panel heading -->
-									 <div class="panel-heading">
-									 <!-- <div class="hover-box"> -->
-										<h4 class="panel-title">
-										
-										  <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseOne-alt3">
-											<i class="fa fa-angle-right"></i> Accordion Heading Text Item # 1
-										  </a>
-										</h4>
-									 </div>
-									 <div id="collapseOne-alt3" class="panel-collapse collapse">
-										<!-- Panel body -->
-										<div class="panel-body">
-										  Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-										</div>
-									 </div>
-								  </div>
-								  <div class="panel">
-									 <div class="panel-heading">
-									 <!-- <div class="hover-box"> -->
-										<h4 class="panel-title">
-										  <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseTwo-alt3">
-											<i class="fa fa-angle-right"></i> Accordion Heading Text Item # 2
-										  </a>
-										</h4>
-									 </div>
-									 <div id="collapseTwo-alt3" class="panel-collapse collapse">
-										<div class="panel-body">
-										  Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-										</div>
-									 </div>
-								  </div>
-								  <div class="panel">
-									 <div class="panel-heading">
-									 <!-- <div class="hover-box"> -->
-										<h4 class="panel-title">
-										  <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
-											<i class="fa fa-angle-right"></i> Accordion Heading Text Item # 3
-										  </a>
-										</h4>
-									 </div>
-									 <div id="collapseThree-alt3" class="panel-collapse collapse">
-										<div class="panel-body">
-										  Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-										</div>
-									 </div>
-								  </div>
-								  <div class="panel">
-									 <div class="panel-heading">
-										<h4 class="panel-title">
-										  <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFour-alt3">
-											<i class="fa fa-angle-right"></i> Accordion Heading Text Item # 4
-										  </a>
-										</h4>
-									 </div>
-									 <div id="collapseFour-alt3" class="panel-collapse collapse">
-										<div class="panel-body">
-										  Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-										</div>
-									 </div>
-								  </div>
-								</div>
-								<!-- Accordion ends -->
 								
-							</div>
-							
-							<div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-								<div class="block-heading-two">
-									<h3><span>Our Expertise</span></h3>
-								</div>								
-								<h6>Web Development</h6>
-								<div class="progress pb-sm">
-								  <!-- White color (progress-bar-white) -->
-								  <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-									 <span class="sr-only">40% Complete (success)</span>
-								  </div>
-								</div>
-								<h6>Designing</h6>
-								<div class="progress pb-sm">
-								  <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-									 <span class="sr-only">40% Complete (success)</span>
-								  </div>
-								</div>
-								<h6>User Experience</h6>
-								<div class="progress pb-sm">
-								  <div class="progress-bar progress-bar-lblue" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									 <span class="sr-only">40% Complete (success)</span>
-								  </div>
-								</div>
-								<h6>Development</h6>
-								<div class="progress pb-sm">
-								  <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-									 <span class="sr-only">40% Complete (success)</span>
-								  </div>
-								</div>
-							</div>
-							
-						</div>
-						
-						 						
-						 
-						<br>
-						<!-- Our Team starts -->
-				
-						<!-- Heading -->
-						<div class="block-heading-six" data-aos="fade-in">
-							<h3 class="bg-color">Our Team</h3>
-						</div>
-						<br>
-						
-						<!-- Our team starts -->
-						
-						<div class="team-six">
-							<div class="team-member-wrapper">
-							<div class="row">
-								<!-- <div class="col-md-3 col-sm-6" data-aos="fade-up"> -->
-									<!-- Team Member -->
-									
-										<div class="team-box-horizontal" data-aos="fade-up">
-											<!-- <div class="team-box" data-aos="fade-up"> -->
-									<div class="team-box-content">
-									<!-- <div class="team-member"> -->
-										<!-- Image -->
-										<!-- <div class="team-member" data-aos="fade-up" data-aos-delay="400"> -->
-										<img class="team-image" src="plugins/home-plugins/img/team1.jpg" alt="">
-										<!-- Name -->
-										<!-- <div class="team-details"> -->
-										<h4>Johne Doe</h4>
-										<span class="deg">Creative</span> 
-										<p class="info">
-                                         Johne Doe is a seasoned UX/UI designer, known for crafting intuitive user experiences and stunning visual designs.
-                                        </p>
-									</div>
-								</div>
-								<!-- <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200"> -->
-									<!-- Team Member -->
-									<div class="team-box-horizontal" data-aos="fade-up" data-aos-delay="200">
-									<!-- <div class="team-box" data-aos="fade-up" data-aos-delay="200"> -->
-									<div class="team-box-content">
-									<!-- <div class="team-member"> -->
-										<!-- Image -->
-										<!-- <div class="team-member" data-aos="fade-up" data-aos-delay="400"> -->
-										<img class="team-image" src="plugins/home-plugins/img/team2.jpg" alt="">
-										<!-- Name -->
-										<h4>Jennifer</h4>
-										<span class="deg">Programmer</span> 
-										<p class="info">
-                                         Jennifer is a Software Developer, known for crafting intuitive user experiences and stunning visual designs.
-                                        </p>
-										
-									</div>
-								</div>
-								<!-- <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="400"> -->
-									<!-- Team Member -->
-									<div class="team-box-horizontal" data-aos="fade-up" data-aos-delay="400">
-									<!-- <div class="team-box" data-aos="fade-up" data-aos-delay="400"> -->
-									<div class="team-box-content">
-									<!-- <div class="team-member"> -->
-										<!-- Image -->
-										<!-- <div class="team-member" data-aos="fade-up" data-aos-delay="600"> -->
-										<img class="team-image" src="plugins/home-plugins/img/team3.jpg" alt="">
-										<!-- Name -->
-										<h4>Christean</h4>
-										<span class="deg">CEO</span> 
-										<p class="info">
-                                         Christean is a CEO.
-                                        </p>
-									</div>
-								</div>
-								<!-- <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="600"> -->
-									<!-- Team Member -->
-									<div class="team-box-horizontal" data-aos="fade-up" data-aos-delay="400">
-									<!-- <div class="team-box" data-aos="fade-up" data-aos-delay="600"> -->
-									<div class="team-box-content">
-									<!-- <div class="team-member"> -->
-										<!-- Image -->
-										<!-- <div class="team-member" data-aos="fade-up" data-aos-delay="400"> -->
-										<img class="team-image" src="plugins/home-plugins/img/team4.jpg" alt="">
-										<!-- Name -->
-										<h4>Kerinele rase</h4>
-										<span class="deg">Manager</span> 
-										<p class="info">
-                                         Michael is a Manager, known for user experiences and stunning visual designs.
-                                        </p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+	<div class="hero-section"  data-aos="fade-in">
+    <div class="hero-content">
+        <div class="text-container" data-aos="fade-up">
+            <h1><a href="erp-evalue.php">ERP Evaluation</a></h1>
+            <!-- <p class="subheading">You've got the idea. We'll help bring it to life.</p> -->
+            <p>ERP evaluation is a comprehensive process that involves analyzing a business’s specific needs, assessing available ERP solutions, and selecting the most suitable system to streamline operations and support organizational goals.</p>
+        </div>
+        <div class="image-container" data-aos="fade-up"  data-aos-delay="400">
+            <img src="plugins/home-plugins/img/About_Us/business.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="new-hero-section" data-aos="fade-in">
+<div class="new-hero-content">
+        <div class="new-text-container" data-aos="fade-up">
+            <h1><a href="erp-implement.php">ERP Implementation</a></h1>
+            <!-- <p class="subheading">You've got the idea. We'll help bring it to life.</p> -->
+            <p>ERP implementation for project management streamlines and integrates key project processes such as resource allocation, budgeting, scheduling, and reporting into a centralized system. By providing real-time data and improved collaboration tools, it helps project teams manage tasks efficiently, track progress, control costs, and mitigate risks.</p>      
+        </div>
+        <div class="new-image-container" data-aos="fade-up"  data-aos-delay="600">
+            <img src="plugins/home-plugins/img/About_Us/implement.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="third-hero-section" data-aos="fade-in">
+    <div class="third-hero-content">
+        <div class="third-text-container" data-aos="fade-up">
+            <h1><a href="training.php">Training</a></h1>
+            <!-- <p class="subheading">You've got the idea. We'll help bring it to life.</p> -->
+            <p>With highly experienced experts, 
+				our team can assist you with planning and executing training initiatives for ERP projects, 
+				third-party apps, and other software products.</p>
+        </div>
+        <div class="third-image-container" data-aos="fade-up"  data-aos-delay="800">
+            <img src="plugins/home-plugins/img/About_Us/training.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="fourth-hero-section" data-aos="fade-in">
+    <div class="fourth-hero-content">
+        <div class="fourth-text-container" data-aos="fade-up">
+        <h1><a href="erp-audit.php">ERP Audit</a></h1>
+        <!-- <h1><a href="<?php echo web_root; ?>index.php?q=audit">ERP Audit</a></h1> -->
+            <!-- <p class="subheading">You've got the idea. We'll help bring it to life.</p> -->
+            <p>ERP auditing is the assessment of enterprise resource planning functions to 
+                evaluate their efficiency. The aim is to examine how well each ERP component 
+        addresses issues and streamlines processes to make enhancements and reinforce the system.</p>
+        </div>
+        <div class="fourth-image-container" data-aos="fade-up"  data-aos-delay="900">
+            <img src="plugins/home-plugins/img/About_Us/erp.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="team-section" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="team-heading">Meet Our Team</h2>
+<div class="team-container">
+        <?php
+        // Example PHP array of team members (replace with database data)
+        $team = [
+            ["name" => "Dipak Thakare", "role" => "Regional Head", "image" => "plugins/home-plugins/img/Team/img1.jpg"],
+            ["name" => "Rajshri Marathe", "role" => "Associate Software Engineer", "image" => "plugins/home-plugins/img/Team/img2.jpg"],
+            ["name" => "Shraddha Kamble", "role" => "Associate Software Engineer", "image" => "plugins/home-plugins/img/Team/img3.jpeg"],
+            ["name" => "Shreyas Bhuskade", "role" => "ERP Functional Consultant", "image" => "plugins/home-plugins/img/Team/img4.jpg"],
+                           
+        ];
+
+        foreach ($team as $member) {
+            echo "
+            <div class='team-card'>
+                <img src='{$member['image']}' alt='{$member['name']}'>
+                <h3>{$member['name']}</h3>
+                <p>{$member['role']}</p>
+                <div class='social-icons'>
+                    <a href='#'><i class='fab fa-facebook'></i></a>
+                    <a href='#'><i class='fab fa-linkedin'></i></a>
+                    <a href='#'><i class='fab fa-instagram'></i></a>
+                </div>
+            </div>";
+        }
+        ?>
+    </div>
+
+    <div class="team-container">
+        <?php
+        // Example PHP array of team members (replace with database data)
+        $team = [
+            ["name" => "Vibhavari Dhotre", "role" => "ERP Functional Consultant", "image" => "plugins/home-plugins/img/Team/img5.jpg"],
+            ["name" => "Prathmesh Kumbhar", "role" => "ERP Functional Consultant", "image" => "plugins/home-plugins/img/Team/img6.jpg"],
+            ["name" => "Vaibhavi Parab", "role" => "Inside Sales Manager", "image" => "plugins/home-plugins/img/Team/img7.jpg"],
+        
+                        
+        ];
+
+        foreach ($team as $member) {
+            echo "
+            <div class='team-card'>
+                <img src='{$member['image']}' alt='{$member['name']}'>
+                <h3>{$member['name']}</h3>
+                <p>{$member['role']}</p>
+                <div class='social-icons'>
+                    <a href='#'><i class='fab fa-facebook'></i></a>
+                    <a href='#'><i class='fab fa-linkedin'></i></a>
+                    <a href='#'><i class='fab fa-instagram'></i></a>
+                </div>
+            </div>";
+        }
+        ?>
+    </div>
+    </div>
+
+ 
 						<!-- Our team ends -->
 					  
 						
-					</div>
+					<!-- </div> -->
 									
-				</div>
+				<!-- </div> -->
 				<!-- Include AOS CSS and JS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+                <script src="js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <script>
+    
     AOS.init({
         duration: 1000,
         easing: 'ease-in-out',
     });
 </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 	</section> 
 </body>
 </html>
