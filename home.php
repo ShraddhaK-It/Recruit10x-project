@@ -28,7 +28,7 @@
             position: relative;
             width: 100%;
             height: 100%;
-            margin-top:60px;
+            margin-top:10px;
         }
 
         .swiper-slide img {
@@ -197,7 +197,7 @@
         <div class="swiper-container" id="main-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/1174.png" alt="">
+                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/slider1.png" alt="">
                     <div class="swiper-caption">
                         <h3  style="color: #fff;">Empowering Your Next Career Step</h3>
                         <!-- <p>Various career opportunities await you. 
@@ -205,7 +205,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/195.jpg" alt="">
+                    <img src="<?php echo web_root; ?>plugins/home-plugins/img/slides/slider2.png" alt="">
                     <div class="swiper-caption">
                         <!-- <h3>Innovation</h3>
                         <p>We create the opportunities</p> -->
