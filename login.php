@@ -14,6 +14,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
       
     <style>
+        /* Same CSS as provided */
+.error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -2px;
+            margin-bottom: 10px;
+            display: none; /* Hidden by default */
+        }
+        .server-error {
+            color: red;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
       /* Modal Styles */
 .modal-content {
   /* max-height: 100%; */
@@ -26,7 +39,7 @@
 }
 
 .modal-header {
-    background: linear-gradient(135deg,rgb(174, 0, 255),rgb(179, 0, 149));
+    background: linear-gradient(135deg,#6A11CB, #2575FC);
     color: white;
     padding: 15px;
     border-bottom: none;
@@ -111,7 +124,7 @@
 
 /* Buttons */
 .btn-primary {
-    background: linear-gradient(135deg,rgb(174, 0, 255),rgb(179, 0, 149));
+    background: linear-gradient(135deg,#6A11CB, #2575FC);
     border: none;
     border-radius: 30px;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -137,6 +150,7 @@ a:hover {
     color: #0056b3;
     text-decoration: none;
 }
+
 /* Animations */
 @keyframes slideIn {
     from {
@@ -156,23 +170,32 @@ a:hover {
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
+           
                 <h4 class="modal-title" id="myModalLabel">Welcome!!!</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="login-box">
                     <div class="login-box-body">
+                         <!-- Add server error message placeholder -->
+                         <?php if (isset($_GET['error'])): ?>
+                                <p class="server-error"><?php echo htmlspecialchars($_GET['error']); ?></p>
+                            <?php endif; ?>
+                    <!-- <form action="process.php?action=login" enctype="multipart/form-data" method="post"> -->
                         <form id="loginForm" action="" method="post">
+                            
                           <br>
                             <!-- Animated Floating Labels -->
                             <div class="form-group floating-label-group">
-                                <input type="text" class="form-control" id="user_email" name="user_email" required>
+                                <input type="text" class="form-control" id="user_email" name="user_email">
                                 <label for="user_email" class="floating-label">Username</label>
+                                <p class="error-message" id="usernameError">Please enter your username.</p>
                             </div>
                            <br>
                             <div class="form-group floating-label-group">
-                                <input type="password" class="form-control" id="user_pass" name="user_pass" required>
+                                <input type="password" class="form-control" id="user_pass" name="user_pass">
                                 <label for="user_pass" class="floating-label">Password</label>
+                                <p class="error-message" id="passwordError">Please enter your password.</p>
                             </div>
                             <!-- Remember Me & Forgot Password -->
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -180,7 +203,9 @@ a:hover {
                                     <input type="checkbox" class="form-check-input" id="remember">
                                     <label class="form-check-label" for="remember">Remember Me</label>
                                 </div>
-                                <a href="#" class="text-secondary">Forgot Password?</a>
+                                <a href="<?php echo web_root; ?>index.php?q=register" class="text-secondary">Forgot Password?</a><br>
+                                <!-- <a href="<?php echo web_root; ?>index.php?q=register" class="text-center">Register a new membership</a> -->
+
                             </div>
                             <br>
                             <!-- Submit Button -->
@@ -196,25 +221,45 @@ a:hover {
     </div>
 </div>
 
-          <script>
-            document.getElementById("btnlogin").addEventListener("click", function () {
-    alert("Login button clicked!");
-});
-    document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const username = document.getElementById('user_email').value;
-    const password = document.getElementById('user_pass').value;
+<script>
+        // Form validation
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            // e.preventDefault(); // Prevent form submission
+            const username = document.getElementById('user_email').value.trim();
+            const password = document.getElementById('user_pass').value.trim();
 
-    // Validate inputs
-    if (!username || !password) {
-        alert('Please fill in all fields!');
-        return;
-    }
+            let isValid = true;
 
-    // Show success animation
-    alert('Login successful!');
-    $('#myModal').modal('hide'); // Close modal
-});
-</script>
+            // Check if username is empty
+            if (!username) {
+                document.getElementById('usernameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('usernameError').style.display = 'none';
+            }
+
+            // Check if password is empty
+            if (!password) {
+                document.getElementById('passwordError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').style.display = 'none';
+            }
+
+             // Stop form submission if validation fails
+             if (!isValid) {
+                e.preventDefault();
+            }
+
+            // If all fields are valid
+            if (isValid) {
+                alert('Login successful!');
+                // Perform your AJAX or form submission logic here
+                $('#myModal').modal('hide'); // Close modal
+            }
+        });
+    </script>
+
+         
 </body>
 </html>
